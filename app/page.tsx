@@ -93,14 +93,9 @@ export default function Home() {
     );
     const sudoku = new Sudoku(grid, setNumbersFromSudoku);
 
-    console.log("grid before");
     console.log(createTextFromGrid(sudoku.getGrid()));
     sudoku.solve();
-    console.log("grid", sudoku.getGrid());
-
     console.log(createTextFromGrid(sudoku.getGrid()));
-
-    // setNumbersFromSudoku(sudoku);
   };
 
   const clear = () => {
