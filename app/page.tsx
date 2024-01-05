@@ -103,7 +103,17 @@ export default function Home() {
     // setNumbersFromSudoku(sudoku);
   };
 
+  const clear = () => {
+    const inputs = Array.from(document.getElementsByClassName("sudoku-input"));
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i] as HTMLInputElement;
+      input.value = "";
+      input.classList.remove("bg-gray-200", "bg-green-200");
+    }
+  };
+
   const prefill = (grid: number[][]) => {
+    clear();
     grid.forEach((row, i) =>
       row.forEach((cell, j) => {
         if (!cell) return;
@@ -142,13 +152,13 @@ export default function Home() {
           Solve
         </button>
         <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md" onClick={() => prefill(sudoku1)}>
-          Prefill Sudoku 1
+          Example Sudoku 1
         </button>
         <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md" onClick={() => prefill(sudoku2)}>
-          Prefill Sudoku 2
+          Example Sudoku 2
         </button>
         <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md" onClick={() => prefill(sudoku3)}>
-          Prefill Sudoku 3
+          Example Sudoku 3
         </button>
       </div>
     </main>
